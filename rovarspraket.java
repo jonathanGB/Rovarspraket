@@ -11,6 +11,12 @@ class rovarspraket {
 	}	
 
 	private static String rovarspraket(String input) {
+		char[] inputChars = input.toCharArray();
+		for (char inputChar : inputChars) {
+			if (!"aeiou".contains(String.valueOf(inputChar).toLowerCase())) {
+				System.out.println(inputChar);
+			}
+		}
 		return input + "is Rövarspråketed";
 	}
 }
