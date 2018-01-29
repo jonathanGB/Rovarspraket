@@ -2,21 +2,24 @@ import java.util.Scanner;
 
 class rovarspraket {
 	public static void main(String[] args){
-		System.out.println("Please Enter a Sentence to be Rövarspråketed");
-		Scanner scanner = new Scanner(System.in);
-		String input = scanner.nextLine();
-		System.out.println("Check the input: " + input);
-		String output = rovarspraket(input);
-		System.out.println("Check the output: " + output);
+		while (true) {
+			System.out.println("Please Enter a Sentence to be Rövarspråketed");
+			Scanner scanner = new Scanner(System.in);
+			String input = scanner.nextLine();
+			String output = rovarspraketify(input);
+			System.out.println(output);
+		}
 	}	
 
-	private static String rovarspraket(String input) {
+	private static String rovarspraketify(String input) {
 		char[] inputChars = input.toCharArray();
+		String output = "";
 		for (char inputChar : inputChars) {
-			if (!"aeiou".contains(String.valueOf(inputChar).toLowerCase())) {
-				System.out.println(inputChar);
+			output += inputChar;
+			if ("bcdfghjklmnpqrstvwxyz".contains(String.valueOf(inputChar).toLowerCase())) {
+				output += "o" + Character.toLowerCase(inputChar);
 			}
 		}
-		return input + "is Rövarspråketed";
+		return output;
 	}
 }
